@@ -24,6 +24,8 @@
 - [Built with](#built-with)
 - [Development Challenges](#development-challenges)
 - [Wishlist](#wishlist)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Local Depolyment](#how-to-run)
 - [Troubleshooting](#troubleshooting)
 
 
@@ -97,6 +99,88 @@ This project was developed with the following technologies:
 - Investigating several issues that led to "Estimate gas failed" errors\*
 
 _\* They are typically brought on by inaccurate contract addresses and inaccurate default gas values._
+
+## Contribution Guidelines
+
+Is there is anything missing any of your favorite features, which you think you can add to it❓ I invite you to contribute to this project and make it better. To start contributing, follow the below guidelines:
+
+**1.** Fork [this](https://github.com/Nishu0/anime_nft_marketplace) repository.
+
+**2.** Clone your forked copy of the project.
+
+```
+git clone https://github.com/Nishu0/anime_nft_marketplace.git
+```
+
+**3.** Navigate to the project directory :file_folder: .
+
+```
+cd Go-with-flow
+```
+
+**4.** Add a reference(remote) to the original repository.
+
+```
+git remote add upstream https://github.com/Nishu0/anime_nft_marketplace.git
+```
+
+**5.** Check the remotes for this repository.
+
+```
+git remote -v
+```
+
+**6.** Always take a pull from the upstream repository to your master branch to keep it at par with the main project(updated repository).
+
+```
+git pull upstream main
+```
+
+**7.** Create a new branch.
+
+```
+git checkout -b <your_branch_name>
+```
+
+**8.** Perfom your desired changes to the code base.
+
+**9.** Track your changes:heavy_check_mark: .
+
+```
+git add .
+```
+
+**10.** Commit your changes .
+
+```
+git commit -m "Relevant message"
+```
+
+**11.** Push the committed changes in your feature branch to your remote repo.
+
+```
+git push -u origin <your_branch_name>
+```
+
+**12.** To create a pull request, click on `compare and pull requests`.
+
+**13.** Add appropriate title and description to your pull request explaining your changes and efforts done.
+
+**14.** Click on `Create Pull Request`.
+
+**15** Voila :exclamation: You have made a PR to the nft-marketplace :boom: . Wait for your submission to be accepted and your PR to be merged.
+
+<br />
+
+## How to run
+
+- Copy `.env.local.example` to `.env.local` and fill it with environment variables
+- Run `npm run node` to start a local EVM blockchain testnet
+- Run `npm run setup` to deploy NFT and Marketplace contracts and perform some initial actions to the local blockchain
+- Run `npm run dev` to start frontend application
+- Make sure to use `Localhost 8545` as the Metamask's network
+- Make sure to import local Account #0 and #1 into Metamask accounts.
+
 
 ## Wishlist
 
