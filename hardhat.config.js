@@ -1,21 +1,23 @@
-require("@nomiclabs/hardhat-waffle");
+const fs = require('fs');
 
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
-task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
-  const accounts = await hre.ethers.getSigners();
+require('@nomiclabs/hardhat-waffle');
 
-  for (const account of accounts) {
-    console.log(account.address);
-  }
-});
+//add your metamask privateKey in .secret file
+const privateKey = fs.readFileSync('.secret').toString().trim();
 
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
 module.exports = {
-  solidity: "0.8.4",
+  networks: {
+    hardhat: {
+      chainId: 1337,
+    },
+    mumbai: {
+      url: 'https://rpc-mumbai.maticvigil.com',
+      accounts: [privateKey],
+    },
+    // rinkeby: {
+    // url: 'https://rinkeby.infura.io/v3/bed4fdcc76bb4978a9a3103ef0946f64',
+    //   accounts: [privateKey],
+    // },
+  },
+  solidity: '0.8.4',
 };
