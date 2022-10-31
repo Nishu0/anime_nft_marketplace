@@ -9,7 +9,19 @@ import { NFTContext } from '../context/NFTContext';
 import { Button, Input, Loader } from '../components';
 import images from '../assets';
 
-const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
+const projectId='2Gsz2ztH5NH3pIHVa8CS9jNfF0b'
+const projectSecret='af3743911cc45f514bb9a9e9eb155503'
+const auth='Basic '+Buffer.from(projectId+":"+projectSecret).toString("base64")
+const client=ipfsHttpClient({
+  host:'ipfs.infura.io',
+  port:5001,
+  protocol:'https',
+  headers:{
+    authorization: auth
+  }
+
+})
+//const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 
 const CreateItem = () => {
   const { createSale, isLoadingNFT } = useContext(NFTContext);
@@ -20,9 +32,11 @@ const CreateItem = () => {
     try {
       const added = await client.add({ content: file });
 
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+      const url = `https://nisargthakkar.infura-ipfs.io/ipfs/${added.path}`;
+      const imageurl=`https://nisargthakkar.infura-ipfs.io/ipfs/${added.path}`;
+      //const imageurl=`https://ipfs.infura.io:5001/`
 
-      setFileUrl(url);
+      setFileUrl(imageurl);
     } catch (error) {
       console.log('Error uploading file: ', error);
     }
@@ -53,12 +67,13 @@ const CreateItem = () => {
 
   const createMarket = async () => {
     const { name, description, price } = formInput;
+    console.log("getting hereee");
     if (!name || !description || !price || !fileUrl) return;
     /* first, upload to IPFS */
     const data = JSON.stringify({ name, description, image: fileUrl });
     try {
       const added = await client.add(data);
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+      const url = `https://nisargthakkar.infura-ipfs.io/ipfs/${added.path}`;
       /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
       await createSale(url, formInput.price);
       router.push('/');
