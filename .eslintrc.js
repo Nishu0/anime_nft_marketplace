@@ -18,6 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'eol-last': 0,
+    'no-multiple-empty-lines': ["error", { "max": 1, "maxEOF": 0 }],
     'no-console': 0,
     'jsx-a11y/label-has-associated-control': 0,
     'no-nested-ternary': 0,
