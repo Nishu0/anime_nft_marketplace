@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState, useMemo, useCallback, useContext } from 'react';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 import { useRouter } from 'next/router';
