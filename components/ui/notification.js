@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Notification = (props) => {
   const { title, message, status } = props;
 
