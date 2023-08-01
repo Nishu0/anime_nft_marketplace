@@ -90,61 +90,64 @@ function ContactForm() {
     }
 
     return (
-        <section className="{classes.contact}">
-            <h1>How can I help you?</h1>
-            <form className={classes.form} onSubmit={sendMessageHandler}>
-                <div className={classes.controls}>
-                    <div className={classes.control}>
-                        <label htmlFor="email">Your Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            required
-                            value={enteredEmail}
-                            onChange={(event) =>
-                                setEnteredEmail(event.target.value)
-                            }
-                        />
-                    </div>
-                    <div className={classes.control}>
-                        <label htmlFor="name">Your Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            required
-                            value={enteredName}
-                            onChange={(event) =>
-                                setEnteredName(event.target.value)
-                            }
-                        />
-                    </div>
-                </div>
-                <div className={classes.control}>
-                    <label htmlFor="message">Your Message</label>
-                    <textarea
-                        id="message"
-                        rows="5"
-                        required
-                        value={enteredMessage}
-                        onChange={(event) =>
-                            setEnteredMessage(event.target.value)
-                        }
-                    ></textarea>
-                </div>
-
-                <div className={classes.actions}>
-                    <button>Send Message</button>
-                </div>
-            </form>
-            {notification && (
-                <Notification
-                    status={notification.status}
-                    title={notification.title}
-                    message={notification.message}
-                />
-            )}
+        <section className="p-8">
+          <h1 className="text-2xl font-bold mb-4">How can I help you?</h1>
+          <form className="space-y-4" onSubmit={sendMessageHandler}>
+            <div className="space-y-2">
+              <label htmlFor="email" className="block font-medium">
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                required
+                value={enteredEmail}
+                onChange={(event) => setEnteredEmail(event.target.value)}
+                className="block w-full border border-gray-300 rounded-md p-2"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="name" className="block font-medium">
+                Your Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                required
+                value={enteredName}
+                onChange={(event) => setEnteredName(event.target.value)}
+                className="block w-full border border-gray-300 rounded-md p-2"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="message" className="block font-medium">
+                Your Message
+              </label>
+              <textarea
+                id="message"
+                rows="5"
+                required
+                value={enteredMessage}
+                onChange={(event) => setEnteredMessage(event.target.value)}
+                className="block w-full border border-gray-300 rounded-md p-2"
+              ></textarea>
+            </div>
+    
+            <div className="flex justify-center">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                Send Message
+              </button>
+            </div>
+          </form>
+          {notification && (
+            <Notification
+              status={notification.status}
+              title={notification.title}
+              message={notification.message}
+            />
+          )}
         </section>
-    );
-}
+      );
+    }
 
 export default ContactForm;
